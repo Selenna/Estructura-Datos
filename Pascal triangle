@@ -1,0 +1,40 @@
+package sac;
+
+import java.io.*;
+
+public class PascalTriangle 
+
+	{
+
+	public static void main (String[] args) throws IOException  {
+		
+		BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+		
+			bw.write("Type the number of columns: ");
+			bw.flush();
+			int row = Integer.parseInt(br.readLine());
+			int x;
+			
+			int[] a = new int[1];
+			
+			 for (x = 1; x <= row; x++)  {
+		            
+				 int[] o = new int[x];
+		            
+		            for (int s = 0; s < x; s++) {
+		                
+		            	if (s == 0 || s == (x - 1)) {
+		                    o[s] = 1;
+		                		
+		                	} else {
+		                		o[s] = a[s] + a[s - 1];
+		                }
+		                bw.write(o[s] + " ");
+		      }
+		      a = o;
+		      bw.write(" " + "\n");
+		}
+		bw.flush();
+	}
+}
