@@ -1,0 +1,39 @@
+package sac;
+
+import java.io.*;
+
+	public class Palindrome
+{
+	public static void main(String[] args) {
+ 
+		BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter (System.out));
+		
+		try
+		{
+		
+		bw.write("Type the word: ");
+		bw.flush();
+			String word = br.readLine();
+			StringBuffer cadena = new StringBuffer(word);
+			StringBuffer rta= cadena.reverse(); 
+
+			StringBuffer sc = new StringBuffer(rta); 
+			String revers = sc.toString(); 
+
+		bw.write(word + "\n");
+		bw.flush();
+			
+			if(word.equals(revers)) { 
+				bw.write("\nThe word is palindrome.");
+				bw.flush();
+				
+				}else {
+					bw.write("\nThe word isn´t palindrome.");
+					bw.flush();
+					
+	            }
+		}
+		catch (Exception ex) {}
+		}
+}
