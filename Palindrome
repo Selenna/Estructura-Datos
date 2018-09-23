@@ -2,38 +2,69 @@ package sac;
 
 import java.io.*;
 
-	public class Palindrome
-{
-	public static void main(String[] args) {
- 
-		BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter (System.out));
-		
-		try
-		{
-		
-		bw.write("Type the word: ");
-		bw.flush();
-			String word = br.readLine();
-			StringBuffer cadena = new StringBuffer(word);
-			StringBuffer rta= cadena.reverse(); 
+public class Palindrome {
+	
+	static BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+	static BufferedWriter bw = new BufferedWriter (new OutputStreamWriter (System.out));
 
-			StringBuffer sc = new StringBuffer(rta); 
-			String revers = sc.toString(); 
-
-		bw.write(word + "\n");
-		bw.flush();
-			
-			if(word.equals(revers)) { 
-				bw.write("\nThe word is palindrome.");
-				bw.flush();
+	public static int substring(String total, String sub)
+	
+	{
+		
+		int counter = 0;
+		
+		for (int i = 0; i <= (total.length() - sub.length()); i++)
+			if (total.substring(i, i + sub.length()). equals(sub))
 				
-				}else {
-					bw.write("\nThe word isn´t palindrome.");
-					bw.flush();
-					
-	            }
-		}
-		catch (Exception ex) {}
+				counter += 1;
+				
+		return counter;
+	}
+	
+	public static boolean palindrome(String input)
+	
+	{
+		
+		if (input.length() <= 1)
+			return true;
+		
+		else
+			
+			if (input.charAt(0) == input.charAt(input.length() - 1))
+				return palindrome (input.substring(1, input.length() - 1));
+			else
+				return false;
+	}
+	
+	public static boolean palindrome(String input, int indexA, int indexB)
+	{
+		if (indexB <= indexA)
+			return true;
+		else
+			if (input.charAt(indexA) == input.charAt(input.length() - 1))
+				return palindrome(input.substring(1, input.length() - 1));
+			else
+				return false;	
+	}
+	
+		public static void main (String[] args)
+		{
+			
+			String input;
+			
+			try
+			{
+				
+				bw.write("Type the palindrome phrase: ");
+				bw.flush();
+				input = br.readLine();
+				input = input.replace(" ", "");
+				
+				bw.write("\nThe palindrome phrase is: " + palindrome(input));
+				
+				bw.flush();
+			}
+			catch (Exception ex) {}
 		}
 }
+	 
