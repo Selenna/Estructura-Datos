@@ -1,0 +1,88 @@
+package sac;
+
+
+	import java.io.*;
+
+	public class Cryp {
+
+		public static void main (String [] args) throws IOException
+		{
+
+			//Read entry
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		    bw.write("Type the word (Min 6 characters): "); 
+		    bw.flush();
+		    String characters = br.readLine();
+			String c1 = "Encripted: ";
+			String c2 = "Decrypted: ";
+
+			//Convert to lower case the word
+		    try
+		    {
+		    	characters = characters.toLowerCase();
+		    	bw.write("Origial caracter (LowerCase):\n");
+		    	bw.write(characters + "\n");
+		    	bw.write("\n");
+
+			//Find the substring (3, 6).    
+		    	bw.write("Substring (3, 6): \n");
+		    	bw.write(characters.substring(3, 6) + "\n");
+		    	bw.write("\n");
+
+		    //Find the substring (4)
+		    	bw.write("Substring (4): \n");
+		    	bw.write(characters.substring (3) + "\n");
+		    	bw.write("\n");
+
+		    //Arrays for replace the characters of the word
+		    	characters = characters.replace ("a" , "4");
+		    	characters = characters.replace ("e" , "3");
+		    	characters = characters.replace ("i" , "1");
+		    	characters = characters.replace ("o" , "0");
+		    	characters = characters.replace ("u" , "9");
+		    	
+		    //Print the result
+		    	bw.write("Replace Characters: \n");
+		    	bw.write(characters+"\n");
+		    	bw.flush();
+		    	bw.write("\n");
+		    
+			//Encryt the characters (+1)
+		    		 char array [] = characters.toCharArray();
+		 	    	for (int i = 0; i < array.length; i++)
+		 	    	{
+		 	    		array[i] = (char)(array[i] + (char)1);
+		 	    	}
+		 	    	
+		 	    	String encrypted = String.valueOf(array);
+		 	    	
+		 	//Print the result
+		 	    	
+		 	    	bw.write(c1 + "\n");
+		 	    	bw.write(encrypted + "\n");	    
+		 	    	bw.flush();
+		 	    	bw.write("\n");
+		 	    	
+		 	 //Decrypt the characters (-1)
+		 	    	
+		 	    	char arrayD[] = characters.toCharArray();
+		 	    		for (int i = 0; i < arrayD.length; i++)
+		 	    		{
+		 	    			arrayD[i] = (char)(arrayD[i] - (char)1);
+		 	    		}	
+		 	    		
+		 	    		String decrypted = String.valueOf(arrayD);
+		 	    		
+		 	 //Print the result
+		 	    		
+		 	    		bw.write( c2 + "\n");
+		 	    		bw.write(decrypted + "\n");
+		 	    		bw.flush();
+		 	    		
+		 	    	 	}
+		 	    
+		    		catch (Exception ex) {}
+		  }
+  }
+		 
